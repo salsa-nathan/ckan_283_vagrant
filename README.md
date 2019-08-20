@@ -1,33 +1,26 @@
-# dataqld_ckan
-A local development setup for the Data.Qld project
+# ckan_283_vagrant
+A Vagrant based local development setup for CKAN 2.8.3
 
 ## Local Setup
 
 1. Clone this repository
 
-2. Copy the `development.template.ini` to `development.ini` and adjust per you local setup.
+1. Install vagrant, https://www.vagrantup.com/docs/installation/
 
-        cd dataqld_ckan
-        cp etc/default/development.ini etc/default/development.template.ini
-
-
-3. Install vagrant, https://www.vagrantup.com/docs/installation/
-
-4. Install some vagrant extensions, run this on your CLI
+1. Install some vagrant extensions, run this on your CLI
 
         vagrant plugin install vagrant-hostmanager
         vagrant plugin install vagrant-cachier
         vagrant plugin install vagrant-vbguest
 
-5. Install any git submodules (if required)
+1. Install any git submodules (if required)
 
-        cd dataqld_ckan
         git submodule init
         git submodule update
 
-6. Launch the Vagrantfile for the desired box (currently only Ubuntu - Centos 6 to come):
+6. Launch the Vagrant box:
 
-        cd vagrant.ubuntu
+        cd vagrant
         vagrant up
 
 7. SSH into the Vagrant box and launch the CKAN instance:
@@ -38,22 +31,33 @@ A local development setup for the Data.Qld project
   
 8. Browse your local CKAN instance:
 
-        http://dataqld.loc:5000
+        http://ckan283.loc:5000
 
-## Additional Configuration & Setup
+## Test database
 
-### YTP Comments
+The `setup_ckan` script imports a CAKN database with some test data setup:
 
-Requires these additional `.ini` file settings:
+1. test organisation
 
-        # YTP Comments
-        ckan.comments.moderation = False
-        ckan.comments.moderation.first_only = False
-        ckan.comments.threaded_comments = True
-        ckan.comments.users_can_edit = False
-        ckan.comments.check_for_profanity = True
-        ckan.comments.bad_words_file = /usr/lib/ckan/default/src/ckanext-ytp-comments/ckanext/ytp/comments/bad_words.txt
+1. test dataset
 
-Also, requires initialising the `comments` database tables:
+1. test users (all p/w: password):
 
-        paster --plugin=ckanext-ytp-comments initdb --config=/etc/ckan/default/development.ini
+    - admin
+    - org_admin
+    - org_editor
+    - org_member
+    - test_user (no affiliations)
+
+1. test groups
+
+    - Group 1
+    - Group 2
+
+## Bash aliases
+
+After `vagrant ssh` you can use the following commands:
+
+`serve` - stop & start Solr, then serve CKAN
+
+`reserve` - serve CKAN without stopping & starting Solr.

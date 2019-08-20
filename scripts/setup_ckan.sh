@@ -4,6 +4,8 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 HIGHLIGHT='\e[105m'
 
+sudo cp /vagrant_data/scripts/.bash_aliases /home/vagrant
+
 echo -e "${NC}${HIGHLIGHT} ##################################################################### ${NC}"
 echo -e "--- ${HIGHLIGHT} 1. Create the PostgreSQL database ${NC} --- "
 echo -e "${HIGHLIGHT} ##################################################################### ${NC}"
@@ -15,6 +17,8 @@ echo -e "--- ${HIGHLIGHT} 2. Install CKAN ${NC} --- "
 echo -e "${HIGHLIGHT} ##################################################################### ${NC}"
 sudo ln -sf /vagrant_data/etc/ /etc/ckan
 sudo ln -sf /vagrant_data/ckan/ /usr/lib/
+sudo mkdir -p /var/lib/ckan
+sudo chown `whoami` /var/lib/ckan
 sudo mkdir -p /usr/lib/ckan/default
 sudo chown `whoami` /usr/lib/ckan/default
 virtualenv --no-site-packages /usr/lib/ckan/default
@@ -73,8 +77,13 @@ echo -e "--- ${HIGHLIGHT} 9. Create salsa as sysadmin user ${NC} --- "
 echo -e "--- Username: salsa --- "
 echo -e "--- Password: password --- "
 echo -e "${HIGHLIGHT} ##################################################################### ${NC}"
-paster user add salsa email=nathan@salsadigital.com.au password=password -c /etc/ckan/default/development.ini
-paster sysadmin add salsa -c /etc/ckan/default/development.ini
+#paster user add admin email=nathan@salsadigital.com.au password=password -c /etc/ckan/default/development.ini
+#paster sysadmin add salsa -c /etc/ckan/default/development.ini
+
+paster db clean -c /etc/ckan/default/development.ini
+sudo -u postgres pg_restore --clean --if-exists -d ckan_default < /vagrant_data/db/ckan.dump
+
+paster --plugin=ckan search-index rebuild -c /etc/ckan/default/development.ini
 
 echo -e "${NC}${HIGHLIGHT} ##################################################################### ${NC}"
 echo -e "--- ${HIGHLIGHT} 12. Run following commands to start CKAN ${NC} --- "
