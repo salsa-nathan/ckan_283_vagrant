@@ -35,7 +35,7 @@ A Vagrant based local development setup for CKAN 2.8.3
 
 ## Test database
 
-The `setup_ckan` script imports a CAKN database with some test data setup:
+The `setup_ckan` script imports a CKAN database with some test data setup:
 
 1. test organisation
 
