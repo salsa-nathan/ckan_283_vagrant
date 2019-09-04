@@ -61,3 +61,5 @@ After `vagrant ssh` you can use the following commands:
 `serve` - stop & start Solr, then serve CKAN
 
 `reserve` - serve CKAN without stopping & starting Solr.
+
+`jobworker` - start the CKAN Job Worker.
