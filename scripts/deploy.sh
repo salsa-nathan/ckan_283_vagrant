@@ -4,7 +4,7 @@
 
 pip install setuptools==36.1
 
-pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.8.3#egg=ckan'
+pip install -e 'git+https://github.com/ckan/ckan.git@ckan-2.8.4#egg=ckan'
 
 pip install -r /usr/lib/ckan/default/src/ckan/requirements.txt
 
