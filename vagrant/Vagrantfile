@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 
-HOSTNAME="ckan283.loc"
+HOSTNAME="ckan284.loc"
 
 Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
