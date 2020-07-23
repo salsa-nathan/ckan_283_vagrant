@@ -31,7 +31,7 @@ A Vagrant based local development setup for CKAN 2.8.3
   
 8. Browse your local CKAN instance:
 
-        http://ckan283.loc:5000
+        http://ckan284.loc:5000
 
 ## Test database
 
