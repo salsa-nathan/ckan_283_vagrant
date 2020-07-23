@@ -89,6 +89,6 @@ echo -e "${NC}${HIGHLIGHT} #####################################################
 echo -e "--- ${HIGHLIGHT} 12. Run following commands to start CKAN ${NC} --- "
 echo -e "    . /usr/lib/ckan/default/bin/activate "
 echo -e "    paster serve --reload /etc/ckan/default/development.ini "
-echo -e "    http://ckan283.loc:5000 "
+echo -e "    http://ckan284.loc:5000 "
 echo -e "${HIGHLIGHT} ##################################################################### ${NC}"
 
