@@ -1,5 +1,5 @@
-# ckan_283_vagrant
-A Vagrant based local development setup for CKAN 2.8.3
+# ckan_284_vagrant
+A Vagrant based local development setup for CKAN 2.8.4
 
 ## Local Setup
 
