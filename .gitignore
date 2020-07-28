@@ -50,26 +50,12 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-<<<<<<< HEAD
-ubuntu-xenial-16.04-cloudimg-console.log
-
-ckan/default/src/ckan
 ckan/default/bin
 ckan/default/lib
 ckan/default/include
 ckan/default/share
 ckan/default/man
 ckan/default/local
-
-=======
-ckan/default/share
-ckan/default/lib
-ckan/default/bin
-ckan/default/local
-ckan/default/include
-ckan/default/man
-ckan/default/src/ckan
 
 vagrant.ubuntu/.vagrant
 ubuntu-xenial-16.04-cloudimg-console.log
->>>>>>> master

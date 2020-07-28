@@ -1,5 +1,5 @@
-# ckan_283_vagrant
-A Vagrant based local development setup for CKAN 2.8.3
+# ckan_284_vagrant
+A Vagrant based local development setup for CKAN 2.8.4
 
 ## Local Setup
 
@@ -13,25 +13,29 @@ A Vagrant based local development setup for CKAN 2.8.3
         vagrant plugin install vagrant-cachier
         vagrant plugin install vagrant-vbguest
 
-1. Install any git submodules (if required)
+1. Install any git submodules:
 
         git submodule init
+        
         git submodule update
 
 6. Launch the Vagrant box:
 
         cd vagrant
+        
         vagrant up
 
 7. SSH into the Vagrant box and launch the CKAN instance:
 
         vagrant ssh
+        
         . /usr/lib/ckan/default/bin/activate
+        
         paster serve --reload /etc/ckan/default/development.ini
   
 8. Browse your local CKAN instance:
 
-        http://ckan283.loc:5000
+        http://ckan284.loc:5000
 
 ## Test database
 
